@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ genre.name }}</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Year</th>
+                <th scope="col">Budget</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for movie in genre.movies %}
+                <tr>
+                    <td> {{ movie.title}}</td>
+                    <td> {{ movie.description }}</td>
+                    <td> {{ movie.year }}</td>
+                    <td> {{ movie.budget }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="{{ path('app_genre') }}">Back</a>
+    </div>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

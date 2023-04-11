@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+    {% endfor %}
+    <div class="container">
+        <form action="{{ path('genre_new') }}" method="post">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h1>Genre toevoegen</h1>
+                    <br> <br>
+                    {{ form_label(genre_form.name) }}
+                    {{ form_widget(genre_form.name, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form_widget(genre_form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                </div>
+            </div>
+            {{ form_rest(genre_form) }}
+        </form>
+    </div>
+
+
+{% endblock %}

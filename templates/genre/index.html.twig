@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GenreController!{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="container text-center">
+        <div class="row">
+            <h1><b>Genres</b></h1>
+            {% for genre in genres %}
+            <div class="col-sm-4">
+                <br>
+                <a href='movies/{{genre.id}}'>{{ genre.name }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        <br>
+        <a class="btn btn-primary" href="{{ path('genre_new') }}">Create new</a>
+    </div>
+{% endblock %}
